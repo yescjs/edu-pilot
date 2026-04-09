@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+body {
+  background-color: #fafaf9;
+  color: #1c1917;
+}
+
+/* Custom scrollbar for the sidebar textarea */
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: #d6d3d1;
+  border-radius: 3px;
+}
