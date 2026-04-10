@@ -3,8 +3,8 @@ import { SimulationResult } from "./types";
 import { buildPrompt } from "./prompts";
 
 const API_KEY = process.env.GEMINI_API_KEY!;
-const MODEL_PRIMARY = "gemini-2.5-flash-lite";
-const MODEL_FALLBACK = "gemini-2.0-flash";
+const MODEL_PRIMARY = "gemini-3.1-flash-lite-preview";
+const MODEL_FALLBACK = "gemini-2.5-flash-lite";
 
 const responseSchema = {
   type: SchemaType.OBJECT,
