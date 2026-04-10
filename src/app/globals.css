@@ -1,11 +1,79 @@
 @import "tailwindcss";
 
-body {
-  background-color: #fafaf9;
-  color: #1c1917;
+@theme {
+  --color-primary: #2563EB;
+  --color-primary-light: #DBEAFE;
+  --color-success: #16A34A;
+  --color-warning: #EA580C;
+  --color-danger: #DC2626;
+  --color-surface: #F8FAFC;
+  --color-card: #FFFFFF;
+  --color-text: #0F172A;
+  --color-text-secondary: #64748B;
+  --color-border: #E2E8F0;
 }
 
-/* Custom scrollbar for the sidebar textarea */
+/* Animations — must be outside @theme per Tailwind CSS 4 spec */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes heatmapFill {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 400ms ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 300ms ease-out both;
+}
+
+.animate-heatmap-fill {
+  animation: heatmapFill 200ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-slide-up,
+  .animate-fade-in,
+  .animate-heatmap-fill {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* Custom scrollbar */
 textarea::-webkit-scrollbar {
   width: 6px;
 }
