@@ -6,10 +6,17 @@ import { SimulationResponse } from "@/lib/types";
 export async function simulateLesson(
   lessonPlan: string
 ): Promise<SimulationResponse> {
+  const MAX_CHARS = 10_000;
   if (!lessonPlan || lessonPlan.trim().length < 50) {
     return {
       success: false,
       error: "Lesson plan must be at least 50 characters.",
+    };
+  }
+  if (lessonPlan.trim().length > MAX_CHARS) {
+    return {
+      success: false,
+      error: `Lesson plan must not exceed ${MAX_CHARS} characters.`,
     };
   }
 

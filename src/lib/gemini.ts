@@ -2,7 +2,13 @@ import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import { SimulationResult } from "./types";
 import { buildPrompt } from "./prompts";
 
-const API_KEY = process.env.GEMINI_API_KEY!;
+function getApiKey(): string {
+  const key = process.env.GEMINI_API_KEY;
+  if (!key) {
+    throw new Error("GEMINI_API_KEY environment variable is not set.");
+  }
+  return key;
+}
 const MODEL_PRIMARY = "gemini-3.1-flash-lite-preview";
 const MODEL_FALLBACK = "gemini-2.5-flash-lite";
 
@@ -66,29 +72,38 @@ async function callGeminiWithRetry(
   modelName: string,
   prompt: string
 ): Promise<SimulationResult> {
-  const genAI = new GoogleGenerativeAI(API_KEY);
+  const genAI = new GoogleGenerativeAI(getApiKey());
   const model = genAI.getGenerativeModel({
     model: modelName,
     generationConfig: {
       responseMimeType: "application/json",
-      responseSchema: responseSchema as never,
+      responseSchema: responseSchema as Parameters<typeof genAI.getGenerativeModel>[0]["generationConfig"] extends { responseSchema?: infer S } ? S : never,
     },
   });
 
   for (let attempt = 0; attempt < 2; attempt++) {
-    const result = await model.generateContent(prompt);
-    const text = result.response.text();
     try {
-      return JSON.parse(text) as SimulationResult;
-    } catch {
+      const result = await model.generateContent(prompt);
+      const text = result.response.text();
+      const parsed = JSON.parse(text);
+      if (
+        !parsed ||
+        !Array.isArray(parsed.timeline) ||
+        !Array.isArray(parsed.questions) ||
+        !Array.isArray(parsed.risk_areas)
+      ) {
+        throw new Error("Unexpected response shape from model.");
+      }
+      return parsed as SimulationResult;
+    } catch (err) {
       if (attempt === 0) {
-        console.warn("JSON parse failed, retrying...");
+        console.warn("Attempt 1 failed, retrying:", err instanceof Error ? err.message : err);
         continue;
       }
-      throw new Error("Failed to parse simulation response.");
+      throw err;
     }
   }
-  throw new Error("Failed to parse simulation response.");
+  throw new Error("Failed after 2 attempts.");
 }
 
 export async function simulate(

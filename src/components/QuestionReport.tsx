@@ -106,7 +106,7 @@ export function QuestionReport({ questions }: QuestionReportProps) {
 
           return (
             <div
-              key={i}
+              key={`${q.student_type}-${q.difficulty}-${i}`}
               className="bg-white border border-stone-200 rounded-lg p-4"
             >
               <div className="flex items-center gap-2 mb-2">

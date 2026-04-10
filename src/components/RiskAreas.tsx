@@ -22,7 +22,7 @@ export function RiskAreas({ risks, timeline }: RiskAreasProps) {
         const step = timeline.find((s) => s.step === risk.step);
         return (
           <div
-            key={i}
+            key={`risk-${risk.step}-${i}`}
             className="bg-white border border-amber-200 rounded-lg p-4"
           >
             <div className="flex items-center gap-2.5 mb-2">

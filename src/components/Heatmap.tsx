@@ -16,7 +16,7 @@ function getColor(score: number): { bg: string; text: string } {
   return { bg: "#CCFBF1", text: "#115E59" };
 }
 
-const groupLabels: Record<string, string> = {
+const groupLabels: Record<"high" | "mid" | "low", string> = {
   high: "High",
   mid: "Mid",
   low: "Low",

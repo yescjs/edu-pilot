@@ -1,3 +1,5 @@
+"use client";
+
 export function LoadingSkeleton() {
   return (
     <div className="animate-pulse space-y-8">
@@ -9,7 +11,7 @@ export function LoadingSkeleton() {
             <div
               key={i}
               className="h-11 bg-stone-200"
-              style={{ opacity: 0.5 + Math.random() * 0.5 }}
+              style={{ opacity: 0.5 + ((i * 7 + 3) % 10) / 20 }}
             />
           ))}
         </div>
