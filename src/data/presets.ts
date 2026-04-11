@@ -10,116 +10,116 @@ export interface Preset {
 export const presets: Preset[] = [
   {
     id: "photosynthesis",
-    label: "Photosynthesis",
-    subject: "Science",
-    grade: "Grade 8",
-    duration: "45 min",
-    content: `Subject: Biology — Photosynthesis
-Grade: 8th Grade
-Duration: 45 minutes
-Objective: Students will explain the process of photosynthesis, identify its inputs and outputs, and describe why it matters for life on Earth.
+    label: "광합성",
+    subject: "과학",
+    grade: "중학교 2학년",
+    duration: "45분",
+    content: `과목: 생물 — 광합성
+학년: 중학교 2학년
+수업 시간: 45분
+학습 목표: 학생들은 광합성의 과정을 설명하고, 광합성의 재료와 산물을 파악하며, 광합성이 지구 생명에 왜 중요한지 서술할 수 있다.
 
-Phase 1 — Hook (5 min)
-Show two photos side by side: a healthy green plant in sunlight and a yellowed plant kept in a dark closet for 2 weeks. Ask: "What happened? Why does the dark plant look different?" Collect 3-4 student responses verbally.
+1단계 — 도입 (5분)
+건강한 녹색 식물과 2주간 어두운 곳에 보관한 노란 식물 사진을 나란히 보여준다. "무슨 일이 생겼을까요? 어두운 곳의 식물은 왜 다르게 보일까요?" 학생 3~4명의 의견을 구두로 수집한다.
 
-Phase 2 — Direct Instruction (15 min)
-Present the photosynthesis equation: 6CO2 + 6H2O + light energy -> C6H12O6 + 6O2
-Explain each component:
-- Carbon dioxide: enters through stomata in leaves
-- Water: absorbed by roots, transported through xylem
-- Light energy: captured by chlorophyll in chloroplasts
-- Glucose: stored energy the plant uses for growth
-- Oxygen: released as a byproduct
-Use a labeled cross-section diagram of a leaf to show where the process occurs. Emphasize that photosynthesis happens specifically in chloroplasts, not the whole cell.
+2단계 — 직접 교수 (15분)
+광합성 반응식을 제시한다: 6CO2 + 6H2O + 빛에너지 → C6H12O6 + 6O2
+각 요소를 설명한다:
+- 이산화탄소: 잎의 기공을 통해 흡수
+- 물: 뿌리에서 흡수되어 물관을 통해 이동
+- 빛에너지: 엽록체의 엽록소가 흡수
+- 포도당: 식물이 생장에 활용하는 저장 에너지
+- 산소: 부산물로 방출
+잎 단면 모식도를 활용해 광합성이 일어나는 위치를 보여준다. 광합성은 세포 전체가 아니라 엽록체에서만 일어남을 강조한다.
 
-Phase 3 — Guided Activity (15 min)
-Students work in pairs. Each pair receives a blank diagram of a leaf cell. Tasks:
-1. Label the chloroplast, cell wall, vacuole, and stomata
-2. Draw arrows showing CO2 entering and O2 leaving
-3. Write the simplified photosynthesis equation from memory
-Teacher circulates to check diagrams and correct misconceptions in real time.
+3단계 — 안내 활동 (15분)
+모둠(2인 1조)으로 빈 식물 세포 모식도를 받아 다음 과제를 수행한다:
+1. 엽록체, 세포벽, 액포, 기공에 이름 붙이기
+2. CO2가 들어오고 O2가 나가는 방향을 화살표로 표시
+3. 광합성 반응식을 보지 않고 쓰기
+교사는 순회하며 오개념을 즉시 확인하고 수정해 준다.
 
-Phase 4 — Wrap-up & Assessment (10 min)
-Quick-write prompt: "Explain to a 5-year-old what photosynthesis is and why we should thank plants."
-Share 2-3 responses aloud for peer feedback.
-Exit ticket: 3 multiple-choice questions covering inputs, outputs, and location of photosynthesis.`,
+4단계 — 정리 및 평가 (10분)
+서술 과제: "광합성이 무엇인지, 우리가 식물에 감사해야 하는 이유를 초등학교 1학년 친구에게 설명해 보세요."
+2~3명이 발표하고 동료 피드백을 받는다.
+출구 질문: 광합성의 재료, 산물, 반응 장소를 묻는 객관식 3문제.`,
   },
   {
     id: "linear-equations",
-    label: "Linear Equations",
-    subject: "Math",
-    grade: "Grade 7",
-    duration: "45 min",
-    content: `Subject: Mathematics — Solving Linear Equations
-Grade: 7th Grade
-Duration: 45 minutes
-Objective: Students will solve one-variable linear equations with variables on both sides using inverse operations.
+    label: "일차방정식",
+    subject: "수학",
+    grade: "중학교 1학년",
+    duration: "45분",
+    content: `과목: 수학 — 일차방정식 풀기
+학년: 중학교 1학년
+수업 시간: 45분
+학습 목표: 학생들은 등식의 성질을 이용하여 양변에 미지수가 있는 일차방정식을 풀 수 있다.
 
-Phase 1 — Warm-up (5 min)
-Write on the board: "I'm thinking of a number. If I double it and add 3, I get 11. What's my number?"
-Students solve mentally and share answers. Reveal that this is the equation 2x + 3 = 11. Connect the word puzzle to algebraic notation.
+1단계 — 도입 (5분)
+칠판에 적는다: "내가 생각하는 수가 있어요. 그 수를 2배 하고 3을 더하면 11이 됩니다. 그 수는 무엇일까요?"
+학생들이 머릿속으로 풀어보고 답을 발표한다. 이것이 방정식 2x + 3 = 11임을 알려주고, 말로 표현한 문제와 수식의 연결을 확인한다.
 
-Phase 2 — Instruction: One-side Equations (10 min)
-Model solving 3x + 7 = 22 step by step:
-- Subtract 7 from both sides: 3x = 15
-- Divide both sides by 3: x = 5
-- Check: 3(5) + 7 = 22 (correct)
-Emphasize the golden rule: "Whatever you do to one side, you must do to the other."
-Work through 2 more examples with increasing difficulty: 5x - 4 = 16, then 2(x + 3) = 14.
+2단계 — 교수 활동: 한쪽 미지수 방정식 (10분)
+3x + 7 = 22를 단계별로 풀어 보인다:
+- 양변에서 7을 빼기: 3x = 15
+- 양변을 3으로 나누기: x = 5
+- 검산: 3(5) + 7 = 22 (정답)
+핵심 원칙 강조: "한 변에 한 것은 다른 변에도 똑같이 해야 합니다."
+난이도를 높여가며 예제 2개 더 풀기: 5x - 4 = 16, 2(x + 3) = 14.
 
-Phase 3 — Instruction: Variables on Both Sides (10 min)
-Present: 4x + 2 = 2x + 10
-- "First, get all x terms on one side." Subtract 2x from both sides: 2x + 2 = 10
-- Subtract 2 from both sides: 2x = 8
-- Divide by 2: x = 4
-- Check: 4(4)+2 = 18, 2(4)+10 = 18 (correct)
-Work through one more example: 3x - 1 = x + 7.
+3단계 — 교수 활동: 양변에 미지수가 있는 방정식 (10분)
+제시: 4x + 2 = 2x + 10
+- "먼저 x 항을 한쪽으로 모읍니다." 양변에서 2x 빼기: 2x + 2 = 10
+- 양변에서 2 빼기: 2x = 8
+- 2로 나누기: x = 4
+- 검산: 4(4)+2 = 18, 2(4)+10 = 18 (정답)
+추가 예제: 3x - 1 = x + 7.
 
-Phase 4 — Independent Practice (15 min)
-Worksheet with 8 problems in ascending difficulty:
-Problems 1-3: One-side equations (e.g., 4x + 5 = 21)
-Problems 4-6: Variables on both sides (e.g., 5x - 3 = 2x + 9)
-Problems 7-8: Equations with parentheses (e.g., 3(x - 2) = 2x + 1)
-Students work independently. Teacher helps struggling students with problems 1-3 while advanced students progress.
+4단계 — 개인 연습 (15분)
+난이도 순으로 8문제 제공:
+1~3번: 한쪽 미지수 방정식 (예: 4x + 5 = 21)
+4~6번: 양변에 미지수 있는 방정식 (예: 5x - 3 = 2x + 9)
+7~8번: 괄호가 있는 방정식 (예: 3(x - 2) = 2x + 1)
+학생 개인 풀이, 교사는 1~3번 어려워하는 학생 지원.
 
-Phase 5 — Closure (5 min)
-Class discussion: "What is the most important rule when solving equations?"
-Preview tomorrow's lesson: word problems that become linear equations.`,
+5단계 — 정리 (5분)
+전체 토론: "방정식을 풀 때 가장 중요한 규칙은 무엇인가요?"
+다음 시간 예고: 일차방정식으로 나타내는 문장제 문제.`,
   },
   {
     id: "story-elements",
-    label: "Story Elements",
-    subject: "Language Arts",
-    grade: "Grade 4",
-    duration: "40 min",
-    content: `Subject: Language Arts — Identifying Story Elements
-Grade: 4th Grade
-Duration: 40 minutes
-Objective: Students will identify and describe the five key story elements (character, setting, plot, conflict, resolution) in a short story.
+    label: "이야기 구성 요소",
+    subject: "국어",
+    grade: "초등학교 4학년",
+    duration: "40분",
+    content: `과목: 국어 — 이야기의 구성 요소 파악하기
+학년: 초등학교 4학년
+수업 시간: 40분
+학습 목표: 학생들은 짧은 이야기에서 다섯 가지 구성 요소(인물, 배경, 사건, 갈등, 해결)를 찾아 설명할 수 있다.
 
-Phase 1 — Read-Aloud (10 min)
-Read "The Paper Bag Princess" by Robert Munsch aloud to the class. Students listen without writing. Use expressive voices for each character. Pause briefly at the climax and ask: "What do you think Elizabeth will do next?"
+1단계 — 소리 내어 읽기 (10분)
+황선미 작가의 「마당을 나온 암탉」 발췌문을 교사가 소리 내어 읽어 준다. 학생들은 쓰지 않고 듣는다. 각 인물에 맞는 목소리로 표현한다. 절정 부분에서 잠깐 멈추고 "잎싹이 다음에 어떻게 할 것 같나요?"라고 질문한다.
 
-Phase 2 — Introduction to Story Elements (10 min)
-Display an anchor chart with five elements:
-- Character: Who is in the story?
-- Setting: Where and when does it happen?
-- Plot: What happens from beginning to end?
-- Conflict: What problem does the main character face?
-- Resolution: How is the problem solved?
-Walk through each element using "The Paper Bag Princess" as the example. Students help fill in each element verbally as a class.
+2단계 — 구성 요소 소개 (10분)
+다섯 가지 요소가 담긴 학습지를 제시한다:
+- 인물: 이야기에 누가 나오나요?
+- 배경: 언제, 어디에서 일어나는 이야기인가요?
+- 사건: 처음부터 끝까지 어떤 일이 일어났나요?
+- 갈등: 주인공이 겪는 문제는 무엇인가요?
+- 해결: 그 문제가 어떻게 해결되었나요?
+방금 읽은 발췌문을 예시로 삼아 각 요소를 함께 채워 나간다.
 
-Phase 3 — Guided Practice (12 min)
-Hand out a graphic organizer with five labeled boxes. In pairs, students fill in each box for the story just read:
-- Characters: Elizabeth, Prince Ronald, the dragon
-- Setting: A kingdom, then a dragon's cave
-- Plot: Dragon destroys castle and takes Ronald; Elizabeth outsmarts the dragon to rescue him
-- Conflict: The dragon kidnapped Prince Ronald, and Elizabeth must rescue him
-- Resolution: Elizabeth tricks the dragon into exhaustion and decides she doesn't need Ronald after all
-Teacher visits each pair, asking probing questions: "Is the dragon a main character or a minor character? How do you decide?"
+3단계 — 안내 연습 (12분)
+다섯 칸 짜리 그래픽 조직자를 나누어 준다. 2인 1조로 읽은 이야기의 각 칸을 채운다:
+- 인물: 잎싹, 족제비, 청둥오리
+- 배경: 양계장, 마당, 들판
+- 사건: 잎싹이 알을 품고 새끼를 키우다 자유를 찾아 떠남
+- 갈등: 족제비가 새끼를 노리고, 잎싹은 새끼를 지켜야 함
+- 해결: 잎싹이 자신을 희생해 새끼를 구하고 진정한 어미가 됨
+교사가 각 모둠을 돌며 "족제비는 주요 인물인가요, 주변 인물인가요? 어떻게 알 수 있나요?"라고 질문한다.
 
-Phase 4 — Independent Practice (8 min)
-Each student picks a favorite book or movie and fills in a fresh graphic organizer with its five story elements.
-Early finishers write one sentence explaining which element makes their chosen story most interesting and why.`,
+4단계 — 개인 연습 (8분)
+각자 좋아하는 책이나 영화를 골라 새 그래픽 조직자에 다섯 가지 구성 요소를 채운다.
+일찍 마친 학생은 "가장 흥미로운 구성 요소는 무엇이고, 그 이유는 무엇인지" 한 문장으로 쓴다.`,
   },
 ];

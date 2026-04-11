@@ -21,7 +21,7 @@ export function LessonInput({
     <div className="flex flex-col flex-1 min-h-0">
       <div className="mb-4">
         <h2 className="text-xs font-medium text-text-secondary uppercase tracking-wide mb-3">
-          Sample Presets
+          예시 수업안
         </h2>
         <div className="flex flex-wrap gap-2">
           {presets.map((preset) => (

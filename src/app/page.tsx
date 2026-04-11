@@ -26,10 +26,10 @@ export default function Home() {
       if (response.success && response.data) {
         setResult(response.data);
       } else {
-        setError(response.error || "An unexpected error occurred.");
+        setError(response.error || "예기치 못한 오류가 발생했습니다.");
       }
     } catch {
-      setError("Failed to connect to the server.");
+      setError("서버에 연결할 수 없습니다.");
     } finally {
       loadingRef.current = false;
       setLoading(false);
