@@ -57,7 +57,7 @@ export function Dashboard({ result }: DashboardProps) {
       >
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-base font-semibold text-text">
-            이해도 히트맵
+            {heatmapMetric === "understanding" ? "이해도" : "집중도"} 히트맵
           </h3>
           <div className="flex rounded-xl border border-border overflow-hidden">
             {(["understanding", "attention"] as const).map((metric) => (

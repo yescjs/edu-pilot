@@ -9,8 +9,8 @@ function getApiKey(): string {
   }
   return key;
 }
-const MODEL_PRIMARY = "gemini-3.1-flash-lite-preview";
-const MODEL_FALLBACK = "gemini-2.5-flash-lite";
+const MODEL_PRIMARY = "gemini-2.5-flash-lite";
+const MODEL_FALLBACK = "gemini-2.5-flash";
 
 const responseSchema = {
   type: SchemaType.OBJECT,
@@ -29,8 +29,8 @@ const responseSchema = {
               type: SchemaType.OBJECT,
               properties: {
                 group: { type: SchemaType.STRING },
-                understanding: { type: SchemaType.INTEGER },
-                attention: { type: SchemaType.INTEGER },
+                understanding: { type: SchemaType.INTEGER, minimum: 1, maximum: 10 },
+                attention: { type: SchemaType.INTEGER, minimum: 1, maximum: 10 },
               },
               required: ["group", "understanding", "attention"],
             },
@@ -93,6 +93,13 @@ async function callGeminiWithRetry(
         !Array.isArray(parsed.risk_areas)
       ) {
         throw new Error("Unexpected response shape from model.");
+      }
+      // 이해도/집중도 값이 모두 0이면 모델이 제대로 응답하지 않은 것으로 판단
+      const hasValidScores = parsed.timeline.some((step: { groups: Array<{ understanding: number; attention: number }> }) =>
+        step.groups?.some((g) => g.understanding > 0 || g.attention > 0)
+      );
+      if (parsed.timeline.length > 0 && !hasValidScores) {
+        throw new Error("Model returned invalid scores (all zeros). Retrying.");
       }
       return parsed as SimulationResult;
     } catch (err) {
