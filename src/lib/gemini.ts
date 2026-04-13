@@ -15,6 +15,8 @@ const MODEL_FALLBACK = "gemini-2.5-flash";
 const responseSchema = {
   type: SchemaType.OBJECT,
   properties: {
+    summary: { type: SchemaType.STRING },
+    readiness_score: { type: SchemaType.INTEGER },
     timeline: {
       type: SchemaType.ARRAY,
       items: {
@@ -65,7 +67,7 @@ const responseSchema = {
       },
     },
   },
-  required: ["timeline", "questions", "risk_areas"],
+  required: ["summary", "readiness_score", "timeline", "questions", "risk_areas"],
 };
 
 async function callGeminiWithRetry(
@@ -100,6 +102,12 @@ async function callGeminiWithRetry(
       );
       if (parsed.timeline.length > 0 && !hasValidScores) {
         throw new Error("Model returned invalid scores (all zeros). Retrying.");
+      }
+      if (typeof parsed.readiness_score !== "number" || parsed.readiness_score < 0 || parsed.readiness_score > 100) {
+        throw new Error("Model returned invalid readiness_score. Retrying.");
+      }
+      if (!parsed.summary || typeof parsed.summary !== "string" || parsed.summary.trim().length === 0) {
+        throw new Error("Model returned empty summary. Retrying.");
       }
       return parsed as SimulationResult;
     } catch (err) {

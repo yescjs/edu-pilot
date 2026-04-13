@@ -25,6 +25,8 @@ export interface RiskArea {
 }
 
 export interface SimulationResult {
+  summary: string;
+  readiness_score: number;
   timeline: TimelineStep[];
   questions: Question[];
   risk_areas: RiskArea[];

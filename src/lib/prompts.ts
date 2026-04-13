@@ -27,6 +27,20 @@ Generate a simulation with these sections:
 
 3. risk_areas: Identify 2-4 specific steps where significant learning gaps, attention drops, or confusion are likely. Each risk must include a concrete, actionable teaching suggestion the teacher can implement immediately. Write all descriptions and suggestions in Korean.
 
+4. readiness_score: A single integer from 0 to 100 representing the overall lesson readiness.
+   Consider all factors holistically: average understanding and attention across all groups and steps,
+   number of risk areas, and how well the lesson structure supports all three student groups.
+   - 80-100: Well-structured lesson, minor gaps only
+   - 60-79: Decent lesson with some significant weak spots
+   - 0-59: Lesson has critical gaps that will affect learning outcomes
+   Output a single integer. Write the score based on the lesson content, not a generic value.
+
+5. summary: 2-3 sentences written in Korean. Must include:
+   - The strongest phase or moment in the lesson (which step and why)
+   - The most critical weakness or risk (which step and what happens)
+   - One specific, immediately actionable recommendation for the teacher
+   Do not repeat information already in risk_areas. Be direct and specific to this lesson.
+
 Be specific to the actual lesson content. No generic observations.
 
 LESSON PLAN:
