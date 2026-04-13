@@ -7,12 +7,13 @@ import { Dashboard } from "@/components/Dashboard";
 import { LoadingSkeleton } from "@/components/LoadingSkeleton";
 import { simulateLesson } from "./actions/simulate";
 import { presets } from "@/data/presets";
+import { LESSON_TEMPLATE } from "@/components/LessonInput";
 
 export default function Home() {
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(LESSON_TEMPLATE);
   const loadingRef = useRef(false);
 
   async function handleSubmit(input: string) {
@@ -44,9 +45,9 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex">
+    <div className="h-screen flex overflow-hidden">
       {/* Sidebar */}
-      <aside className="w-[400px] shrink-0 border-r border-border bg-card flex flex-col">
+      <aside className="w-[400px] shrink-0 border-r border-border bg-card flex flex-col overflow-y-auto">
         <div className="p-6 border-b border-border">
           <h1 className="text-lg font-bold text-text tracking-tight">
             Edu-Pilot

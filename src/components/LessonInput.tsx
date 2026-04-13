@@ -2,6 +2,33 @@
 
 import { presets } from "@/data/presets";
 
+export const LESSON_TEMPLATE = `[수업 기본 정보]
+- 과목:
+- 학년/학급:
+- 차시:
+- 학습 주제:
+
+[학습 목표]
+-
+
+[수업 흐름]
+1. 도입 (     분)
+   -
+
+2. 전개 (     분)
+   -
+
+3. 정리 (     분)
+   -
+
+[활동 및 자료]
+- 활동:
+- 준비물:
+
+[평가 계획]
+-
+`;
+
 interface LessonInputProps {
   text: string;
   onTextChange: (text: string) => void;
@@ -44,10 +71,14 @@ export function LessonInput({
         </div>
       </div>
 
+      <h2 className="text-xs font-medium text-text-secondary uppercase tracking-wide mb-2">
+        수업 계획 입력
+      </h2>
+
       <textarea
         value={text}
         onChange={(e) => onTextChange(e.target.value)}
-        placeholder="수업 계획을 여기에 붙여넣으세요 (최소 50자)..."
+        placeholder="수업 계획을 입력하세요 (최소 50자)..."
         disabled={loading}
         className="flex-1 min-h-[280px] p-4 text-sm leading-relaxed bg-card border border-border rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary placeholder:text-text-secondary/50 disabled:opacity-50 transition-colors"
       />
