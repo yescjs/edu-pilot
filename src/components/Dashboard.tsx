@@ -5,6 +5,11 @@ import { SimulationResult } from "@/lib/types";
 import { Heatmap } from "./Heatmap";
 import { QuestionReport } from "./QuestionReport";
 import { RiskAreas } from "./RiskAreas";
+import { ReadinessScore } from "./ReadinessScore";
+import { SummaryComment } from "./SummaryComment";
+import { TrendChart } from "./TrendChart";
+import { TeacherChecklist } from "./TeacherChecklist";
+import { PrintButton } from "./PrintButton";
 
 interface DashboardProps {
   result: SimulationResult;
@@ -29,7 +34,10 @@ export function Dashboard({ result }: DashboardProps) {
 
   return (
     <div className="space-y-8">
-      {/* Summary bar — staggered animation */}
+      {/* Readiness Score */}
+      <ReadinessScore score={result.readiness_score} />
+
+      {/* Summary bar */}
       <div className="flex gap-4">
         {stats.map((stat, i) => (
           <div
@@ -49,6 +57,9 @@ export function Dashboard({ result }: DashboardProps) {
           </div>
         ))}
       </div>
+
+      {/* AI Summary Comment */}
+      <SummaryComment summary={result.summary} />
 
       {/* Heatmap Section */}
       <section
@@ -76,6 +87,17 @@ export function Dashboard({ result }: DashboardProps) {
           </div>
         </div>
         <Heatmap timeline={result.timeline} metric={heatmapMetric} />
+      </section>
+
+      {/* Trend Chart */}
+      <section
+        className="animate-fade-slide-up"
+        style={{ animationDelay: "400ms" }}
+      >
+        <h3 className="text-base font-semibold text-text mb-4">
+          {heatmapMetric === "understanding" ? "이해도" : "집중도"} 추세
+        </h3>
+        <TrendChart timeline={result.timeline} metric={heatmapMetric} />
       </section>
 
       {/* Two-column: Questions + Risks */}
@@ -106,6 +128,12 @@ export function Dashboard({ result }: DashboardProps) {
           <RiskAreas risks={result.risk_areas} timeline={result.timeline} />
         </section>
       </div>
+
+      {/* Teacher Checklist */}
+      <TeacherChecklist risks={result.risk_areas} timeline={result.timeline} />
+
+      {/* Print Button */}
+      <PrintButton />
     </div>
   );
 }
